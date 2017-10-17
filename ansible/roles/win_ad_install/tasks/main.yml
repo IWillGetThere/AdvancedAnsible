@@ -1,0 +1,6 @@
+---
+# tasks file for win_ad_install
+#
+- import_tasks: install-ad-domain-services.yml
+
+

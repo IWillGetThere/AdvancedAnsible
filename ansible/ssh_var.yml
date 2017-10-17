@@ -1,0 +1,3 @@
+# vars files for installing openssh
+package_name: openssh
+para_name: /SSHServerFeature

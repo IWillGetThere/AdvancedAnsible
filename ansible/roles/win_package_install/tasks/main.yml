@@ -1,0 +1,4 @@
+---
+# tasks file for win_package_install
+#
+- import tasks: configire-OpenSSH.yml

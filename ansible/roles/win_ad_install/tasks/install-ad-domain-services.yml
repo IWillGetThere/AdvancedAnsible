@@ -1,0 +1,26 @@
+--- 
+# install the AD-Domain-Services Windows feature
+- name: Install Active Directory
+  hosts: windows
+  tasks:
+  win_feature: 
+    name: AD-Domain-Services
+    include_management_tools: yes
+    include_sub_features: yes
+
+- name: Setup Active Directory
+  win_domain:
+    dns_domain_name: "{{ ad_domain_name }}"
+    safe_mode_password: "{{ ansible_password }}"
+  register: active_directory_controllers
+
+#- name: debug print
+#  debug: 
+#    var=active_directory_controllers
+- name: Reboot the machine
+  win_reboot:
+  when: active_directory_controllers.reboot_required
+
+- name: Print the Domain List
+  win_shell: "nltest /dclist:{{ ad_domain_name }}"
+

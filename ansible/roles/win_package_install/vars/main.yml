@@ -1,0 +1,6 @@
+
+---
+# vars file for win_package_install
+#
+package_name: openssh
+para_name: /SSHServerFeature
